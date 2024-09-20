@@ -1,0 +1,115 @@
+<!--pages/setApply/index.wxml-->
+<view class="setApply">
+  <navbar isBackspace="{{!sharePage}}" isGoHome="{{sharePage}}" title="{{navbarTitle}}"></navbar>
+  <view class="initiating-association">
+    <view class="couple-card">
+      <view class="container">
+        <image class="settings-img" bindtap="opHint" src="/static/icons/dots-fff.png" mode=""/>
+        <van-overlay show="{{ showHint }}" bind:click="opHint">
+          <view class="wrapper">
+            <view class='arrow'></view>
+            <view class="bar">
+              <view class="item mb">设置置顶</view>
+              <view class="item mb">设置背景</view>
+              <view class="item warn" bindtap="disassociate">取消关联</view>
+            </view>
+          </view>
+        </van-overlay>
+      </view>
+      <view wx:if="{{serverUrl}}" class="bg-img" style="background-image: url({{serverUrl}}/material_static/ds.jpeg);"></view>
+      <view class="left">
+        <image class="img" wx:if="{{avatar_url}}" src="{{avatar_url}}" mode=""/>
+        <image class="img" wx:else src="{{serverUrl}}/material_static/x_avatar.png" mode=""/>
+        <view>{{user_name}}</view>
+      </view>
+      <view class="middle">
+        <image class="img" wx:if="{{association_status == 2}}" src="/static/icons/disconnect.png" mode=""/>
+        <image class="img-love" wx:elif="{{association_status == 3}}" src="/static/icons/amor_odio.png" mode=""/>
+        <image class="img" wx:else src="/static/icons/no_association.png" mode=""/>
+        <view class="name">{{association_title}}</view>
+      </view>
+      <view class="right">
+        <view class="bare">
+          <image class="img" wx:if="{{association_status !== 3}}" src="/static/icons/add.png" mode=""/>
+          <image class="img" wx:elif="{{partner_data.avatar_url}}" src="{{partner_data.avatar_url}}" mode=""/>
+          <image class="imgs" wx:else src="{{serverUrl}}/material_static/x_avatar.png" mode=""/>
+          <view>{{partner_data ? partner_data.user_name : 'TA'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="header">
+      <view>
+        <view class="title">亲密关联</view>
+        <view class="tip">建立关联后，将贡献纪念日</view>
+      </view>
+      <view class="add-but" bindtap="addMemorial">添加</view>
+    </view>
+    <view class="memorial">
+      <block wx:if="{{anniversaryData.length}}">
+        <view class="card" wx:for="{{anniversaryData}}" wx:key="index">
+          <view class="img-d">
+            <view class="img" wx:if="{{item.img_url && bg_type == 1}}" style="background-image: url({{serverUrl}}/static{{item.img_url}});"></view>
+            <view class="img" wx:elsew style="background-color: {{item.rgbColor}};"></view>
+            <view class="day">{{item.days}}天</view>
+          </view>
+          <view class="info">
+            <view class="title">{{item.name}}</view>
+            <view class="date">{{item.dateType}} {{item.yyyy}}{{item.mm}}{{item.dd}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="no-data" wx:else>
+        <image class="img" src="/static/icons/no_data.png" mode=""/>
+        <view class="tip">还没有纪念日呢，去添加一条吧</view>
+        <view class="refresh" bindtap="refresh">刷新</view>
+      </view>
+    </view>
+  </view>
+  <van-popup
+    show="{{ showSettings }}"
+    round
+    position="bottom"
+    custom-style="height: 20%"
+    bind:close="onCloseSettings"
+  />
+  <van-popup round show="{{ openAdd }}" closeable bind:close="onCloseAddMemorial">
+    <view class="set-memorial">
+      <view class="header">
+        <view class="title">选择纪念日</view>
+        <view class="tip">选择已有的纪念日，设置为共同纪念日</view>
+      </view>
+      <view class="content">
+        <van-checkbox-group value="{{ selectiveData }}" bind:change="onChange">
+          <van-cell-group>
+            <van-cell
+              wx:for="{{ selectiveDataList }}"
+              title="{{ item.name }}"
+              data-index="{{ index }}"
+              wx:key="index"
+              value-class="value-class"
+              clickable
+              bind:click="toggle"
+            >
+              <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item.id }}"/>
+            </van-cell>
+          </van-cell-group>
+        </van-checkbox-group>
+        <view class="no-data" wx:if="{{!selectiveDataList.length}}">
+          <image class="img" src="/static/icons/no_data.png" mode=""/>
+          <view class="tip">没有可选纪念日呢，去新增一条吧</view>
+        </view>
+      </view>
+      <view class="add-tip">
+        <text class="tip">没有合适的？</text>
+        <text class="buttom" bindtap="jumpIndex"> 去新增</text>
+      </view>
+      <view class="opt">
+        <view class="buttom" bindtap="confirm">确定</view>
+      </view>
+    </view>
+  </van-popup>
+  <van-dialog z-index="{{999999}}" id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>

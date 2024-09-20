@@ -1,0 +1,204 @@
+@charset "UTF-8";
+.holiday-box .box {
+  overflow-y: scroll;
+  height: calc(100vh - 165px);
+}
+
+.holiday-box .box .couple-card {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  position: relative;
+  margin: 10px;
+  border-radius: 12px;
+  height: 130px;
+  padding: 15px;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.holiday-box .box .couple-card .bg-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  padding: 0px;
+  margin: 10px;
+}
+
+.holiday-box .box .couple-card .left {
+  text-align: center;
+}
+
+.holiday-box .box .couple-card .left .img {
+  border-radius: 99px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  /* 图片按比例放大，剧中裁剪 */
+}
+
+.holiday-box .box .couple-card .middle {
+  text-align: center;
+}
+
+.holiday-box .box .couple-card .middle .img {
+  width: 30px;
+  height: 30px;
+}
+
+.holiday-box .box .couple-card .middle .name {
+  font-size: 12px;
+}
+
+.holiday-box .box .couple-card .right {
+  text-align: center;
+}
+
+.holiday-box .box .couple-card .right .bare .img {
+  border-radius: 99px;
+  border: 1px solid #7b7b7b;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  /* 图片按比例放大，剧中裁剪 */
+}
+
+.holiday-box .box .couple-card .right .bare .img_s {
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px solid #7b7b7b;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  /* 图片按比例放大，剧中裁剪 */
+}
+
+.holiday-box .box .couple-card .right .bare .imgs {
+  border-radius: 99px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  /* 图片按比例放大，剧中裁剪 */
+}
+
+.holiday-box .box .img-card {
+  margin: 10px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+.holiday-box .box .card {
+  height: 100px;
+  padding: 15px;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.holiday-box .box .schedule {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  position: relative;
+  height: 135px;
+  margin: 10px;
+  margin-top: 20px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.holiday-box .box .schedule .bg-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+.holiday-box .box .schedule .card-header-schedule {
+  padding: 18px 15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holiday-box .box .schedule .card-header-schedule .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.holiday-box .box .schedule .progress-schedule {
+  padding: 0 15px 18px 15px;
+}
+
+.holiday-box .box .schedule .progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.holiday-box .box .schedule .progress {
+  padding: 5px 0;
+}
+
+.holiday-box .box .holiday {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.holiday-box .box .holiday .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holiday-box .box .holiday .card-header .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.holiday-box .box .holiday .content {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holiday-box .box .holiday .content .title {
+  font-size: 23px;
+}
+
+.holiday-box .box .holiday .content .day {
+  font-size: 23px;
+}
+
+.holiday-box .box .holiday .content .unit {
+  font-size: 12px;
+}
+
+.holiday-box .box .more {
+  text-align: center;
+  padding-bottom: 10px;
+  color: #979696;
+}
+
+.holiday-box .box .more .more-name {
+  width: 60px;
+  height: 30px;
+  display: inline-block;
+  line-height: 30px;
+}

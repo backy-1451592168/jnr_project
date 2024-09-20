@@ -1,0 +1,28 @@
+<!--发现页 点进去 查看页-->
+<view class="homeViewCard">
+  <!-- <navbar isBackspace="{{true}}"></navbar> -->
+  <!-- 0f2f9f -->
+  <view class="card" style="background-color: #aebcf0;">
+    <view class="title">
+      <view class="name">{{holidayData.name}}</view>
+      <view class="date">{{holidayData.dateTitle}} ｜ {{holidayData.dayInWeek}}</view>
+    </view>
+    <view class="img">
+      <image class="icon" src="/static/icons/firework.png"></image>
+    </view>
+    <view class="days">
+      <view class="name">天</view>
+      <view class="day">{{holidayData.days}}</view>
+    </view>
+  </view>
+  <view class="action-field">
+    <view class="icon-box" bindtap="backPage">
+      <image class="icon" src="/static/icons/back.png"></image>
+    </view>
+    <view class="icon-box">
+      <image class="icon" src="/static/icons/share.png"></image>
+    </view>
+  </view>
+
+  <van-dialog id="van-dialog" />
+</view>

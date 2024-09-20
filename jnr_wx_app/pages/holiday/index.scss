@@ -1,0 +1,185 @@
+.holiday-box {
+  .box {
+    overflow-y: scroll;
+    height: calc(100vh - 165px);
+
+    .couple-card {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      position: relative;
+      margin: 10px;
+      border-radius: 12px;
+      height: 130px;
+      padding: 15px;
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      .bg-img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        // filter: blur(2px) !important;
+        padding: 0px;
+        margin: 10px;
+      }
+      .left {
+        text-align: center;
+        .img {
+          border-radius: 99px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover; /* 图片按比例放大，剧中裁剪 */
+        }
+      }
+      .middle {
+        text-align: center;
+        .img {
+          width: 30px;
+          height: 30px;
+        }
+        .name {
+          font-size: 12px;
+        }
+      }
+      .right {
+        text-align: center;
+        .bare {
+          .img {
+            // padding: 5px;
+            border-radius: 99px;
+            border: 1px solid #7b7b7b;
+            width: 50px;
+            height: 50px;
+            object-fit: cover; /* 图片按比例放大，剧中裁剪 */
+          }
+          .img_s {
+            padding: 4px;
+            border-radius: 99px;
+            border: 1px solid #7b7b7b;
+            width: 40px;
+            height: 40px;
+            object-fit: cover; /* 图片按比例放大，剧中裁剪 */
+          }
+          .imgs {
+            border-radius: 99px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover; /* 图片按比例放大，剧中裁剪 */
+          }
+        }
+      }
+    }
+
+    .img-card {
+      margin: 10px;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center
+    }
+    .card {
+      height: 100px;
+      padding: 15px;
+      // margin: 10px;
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .schedule {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      position: relative;
+      height: 135px;
+      margin: 10px;
+      margin-top: 20px;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .bg-img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        // filter: blur(2px) !important;
+      }
+      .card-header-schedule {
+        padding: 18px 15px 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      .progress-schedule {
+        padding: 0 15px 18px 15px;
+      }
+
+      .progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      .progress {
+        padding: 5px 0;
+      }
+    }
+  
+    .holiday {
+      // background-color: #6071D7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      .content {
+        padding: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size: 23px;
+        }
+        .day {
+          font-size: 23px;
+        }
+        .unit {
+          font-size: 12px;
+        }
+      }
+    }
+  
+    .more {
+      text-align: center;
+      padding-bottom: 10px;
+      color: #979696;
+      .more-name {
+        width: 60px;
+        height: 30px;
+        display: inline-block;
+        line-height: 30px;
+      }
+    }
+  }
+}

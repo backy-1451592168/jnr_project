@@ -1,0 +1,4 @@
+<!--components/datePicker/index.wxml-->
+<view class="datePicker">
+<van-picker item-height="{{50}}" visible-item-count="{{3}}" columns="{{ columns }}" id="staDatePicker" bind:change="onChange" />  
+</view>

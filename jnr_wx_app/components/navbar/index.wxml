@@ -1,0 +1,35 @@
+<!-- 自定义头部 内容 -->
+<view class="nav-bar" style="height:{{topBarHeight}}px;padding: {{topBarHeight}}rpx 0 0 0;background-color: {{color}};">
+  <!-- 返回 -->
+  <view class="backspace-icon" bindtap="navBack" wx:if="{{isBackspace}}">
+    <view class="back">
+      <van-icon class="arrow-left" name="arrow-left" size="20px" />
+      <view class="name">BACK</view>
+    </view>
+  </view>
+  <view class="go-home-icon" bindtap="navGoHome" wx:if="{{isGoHome}}">
+    <image class="icon" src="/static/icons/home.png"></image>
+  </view>
+  <!-- <view class="bgT" wx:if="{{title == '首页' && isShowIcon}}" bindtap="switchBackgroundType">
+    <image class="img" src="{{bg_type ? '/static/icons/fs.png' : '/static/icons/fs.png'}}" mode=""/>
+  </view> -->
+  <view class="bgT" wx:if="{{title == '首页' && isShowIcon}}" bindtap="openSettings">
+    <image class="img" src="{{bg_type ? '/static/icons/settings.png' : '/static/icons/settings.png'}}" mode=""/>
+  </view>
+  <view class="title">
+    {{title}}
+  </view>
+
+  <van-popup show="{{ showSettings }}" z-index="99999" position="bottom" round="true" custom-style="height: 180px;" bind:close="onCloseSettings">
+    <view class="settings">
+      <view class="card br" bindtap="switchLoveType">
+        <image class="img" src="{{love_type ? '/static/icons/love_sx.png' : '/static/icons/love_kx.png'}}" mode=""/>
+          <view>置顶</view>
+      </view>
+      <view class="card" bindtap="switchBackgroundType">
+        <image class="img" src="{{bg_type ? '/static/icons/fs_o.png' : '/static/icons/fs.png'}}" mode=""/>
+          <view>背景</view>
+      </view>
+    </view>
+  </van-popup>
+</view>

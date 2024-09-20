@@ -1,0 +1,144 @@
+<!--pages/additionDay/index.wxml-->
+<view class="additionDay">
+  <navbar isBackspace="{{true}}" title="{{navbarTitle}}"></navbar>
+  <!-- 创建、编辑 -->
+  <block wx:if="{{cardEdit}}">
+    <view class="content">
+      <view class="form">
+        <view class="form-item">
+          <view class="label-title">
+            <image class="img" src="/static/icons/love_name.png"></image>
+            <view class="label title">名称</view>
+          </view>
+          <view class="name-inpurt">
+            <van-field model:value="{{ name }}" bind:focus="cancelPrompt" placeholder="请输入名称" border="{{ false }}" error="{{vanFieldError}}" />
+          </view>
+        </view>
+        
+        <view class="form-item">
+          <view class="label-title">
+            <image class="img" src="/static/icons/date.png"></image>
+            <view class="label title">日期</view>
+            <van-icon class="icon" bindtap="tip" data-param="rq" name="question-o" />
+          </view>
+          <!-- 期日选选择器 -->
+          <date-picker dateData="{{dateData}}" bindsendData="sendData"></date-picker>
+        </view>
+
+        <view class="form-item form-item-labelNull" bindtap="openRemindSheet">
+          <view class="form-item-content">
+            <view class="inside-label">提前提醒</view>
+            <view class="form-item-content-right">
+              <text class="options">{{remind}}</text>
+              <view class="symbol">></view>
+            </view>
+          </view>
+        </view>
+
+        <view class="form-item form-item-labelNull">
+          <view class="form-item-content">
+            <view class="inside-label">特别关注</view>
+            <van-switch active-color="#333333" inactive-color="#ffffff" size="20px" checked="{{ special_focus_b }}" bind:change="specialAttention" style="display: flex;" />
+          </view>
+        </view>
+        <view class="form-item form-item-labelNull" bindtap="openActionSheet">
+          <view class="form-item-content">
+            <view class="inside-label">分类标签</view>
+            <view class="form-item-content-right">
+              <text class="options">{{classification}}</text>
+              <view class="symbol">></view>
+            </view>
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="label-title">
+            <image class="img" src="/static/icons/remark.png"></image>
+            <view class="label title">备注</view>
+          </view>
+          <view class="name-inpurt">
+            <van-field model:value="{{ remark }}" placeholder="请输入备注" border="{{ false }}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="footer-button">
+      <view class="button" bindtap="switchCard">
+        下一步<image class="img" src="/static/icons/next.png"></image>
+      </view>
+    </view>
+  </block>
+
+  <!-- 预览 -->
+  <block wx:else>
+    <view class="preview">
+      <view class="card">
+        <view class="box" style="{{ background_type == '1' ? 'background-color: ' + preset_color + ';' : 'background: url(' + serverUrl + '/static' + img_url + ');background-size: cover; background-position: center center; background-repeat: no-repeat;'}}">
+          <view class="label">{{name}}</view>
+          <view class="day">{{days}}天</view>
+          <view class="date">{{dateType}} ｜ {{yyyy}}{{mm}}{{dd}} ｜ {{dayInWeek}}</view>
+        </view>
+      </view>
+      <view class="card-save">
+        <view class="titel">自定义背景</view>
+        <view bindtap="uploadPictures" class="edit-background" style="{{'height: ' + dynamicHeight + 'px;'}}">
+          <view class="icon-container">
+            <image class="{{unfold ? 'img-unfold' : 'img-pack-up'}}" src="/static/icons/相机.png" mode="aspectFit"></image>
+            <!-- <image src="/static/icons/上传.png" mode="aspectFit" style="width: 34px; height: 34px;"></image><text class="name">相册</text> -->
+          </view>
+        </view>
+        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+          <van-collapse-item title="预设背景" name="1">
+            <view class="coolors">
+              <!-- 预设 色轮 -->
+              <view class="box">
+                <!-- <view class="color-card" bindtap="openColorPicker" style="{{'background-color: ' + preset_color + ';'}}"> -->
+                <view class="color-card" bindtap="openColorPicker">
+                  <image class="colour-ring" src="/static/image/icon_color_selector.png" mode=""/>
+                  <view class="icon" wx:if="{{isSelectColor}}">
+                    <van-icon name="success" color="{{preset_color}}" />
+                  </view>
+                </view>
+                <!-- 默认颜色 -->
+                <view class="color-card" bindtap="switchPresetColor" data-color="{{item}}" wx:for="{{presetColorList}}" wx:for-item="item" wx:key="item" style="{{'background-color: ' + item + ';'}}">
+                  <view class="icon" wx:if="{{item == preset_color}}">
+                    <van-icon name="success" />
+                  </view>
+                  <view class="label" wx:else>{{item}}</view>
+                </view>
+              </view>
+            </view>
+          </van-collapse-item>
+        </van-collapse>
+      </view>
+      <view class="save-footer-button">
+        <view class="back-button" bindtap="switchCard">
+          <image class="img" src="/static/icons/icon-previousstep.png"></image>返回
+        </view>
+        <view class="button" bindtap="saveData">保存</view>
+      </view>
+    </view>
+  </block>
+
+   <!-- 分类标签下拉框 -->
+   <van-action-sheet show="{{ showRemindSheet }}" actions="{{ remindList }}" bind:close="onCloseRemindSheet" bind:select="onSelectRemindSheet" description="微信订阅、邮件通知，请去”我的-消息通知中“开启" />
+
+  <!-- 分类标签下拉框 -->
+  <van-action-sheet show="{{ showActionSheet }}" actions="{{ actions }}" bind:close="onCloseActionSheet" bind:select="onSelectActionSheet" />
+
+  <van-toast id="van-toast" zIndex="{{999999999}}" />
+
+  <!-- 取色器 -->
+  <van-dialog
+    use-slot
+    z-index="999999"
+    show="{{ colorPickerShow }}"
+    confirm-button-open-type="getUserInfo"
+    bind:getuserinfo="confirmColorPicker"
+    confirm-button-color="#000000"
+  >
+    <color-picker id="picker" imageStyle="width:450rpx;height:450rpx;border-radius:225rpx;" size="{{size}}" brightness="255" bind:selectColor="selectColor"></color-picker>
+    <view style="display: flex; justify-content: center; align-items: center;margin:100rpx 0 20rpx 0;">
+      <view style="width:90%;height:100rpx;border-radius:40rpx;background-color:{{preset_color}};"></view>
+    </view>
+  </van-dialog>
+</view>

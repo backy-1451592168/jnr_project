@@ -1,0 +1,22 @@
+.updateLog .box {
+  overflow-y: scroll;
+  height: calc(100vh - 165px);
+  padding: 20px;
+}
+
+.updateLog .box .options {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.updateLog .box .options .title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.updateLog .box .options .li {
+  color: #7d7c82;
+}

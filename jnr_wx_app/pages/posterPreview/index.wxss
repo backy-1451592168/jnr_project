@@ -1,0 +1,33 @@
+.posterPreview {
+  background-color: #ffffff;
+}
+
+.posterPreview .center {
+  height: 60vh;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  color: red;
+  background-color: #f1f1f1;
+}
+
+.posterPreview .center .title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.posterPreview .settings {
+  height: calc(30vh - 91px);
+}
+
+.posterPreview .title {
+  font-size: 36px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.posterPreview .share-canvas {
+  position: fixed;
+  top: -9999999rpx;
+  background: #fff;
+}

@@ -1,0 +1,244 @@
+<!--pages/user/index.wxml-->
+<view class="user">
+  <view class="userinfo">
+    <view class="bag" style="background-image: url({{background_avatar_url}});"></view>
+    <view class="content">
+      <view class="img-box">
+        <image wx:if="{{serverUrl}}" src="{{avatar_url ? serverUrl + '/static' + avatar_url : serverUrl + '/material_static/x_avatar.png'}}" class="img" />
+      </view>
+      <view class="info">
+        <view class="user-name" bindtap="editInof">
+          {{user_name ? user_name : 'No: ' + identifier}}
+          <image src="/static/icons/edit.png" class="img" />
+        </view>
+        <view class="icon">Register {{daysDifference}} Day</view>
+        <view class="icon email" wx:if="{{email}}">邮箱：{{email}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="message-notification">
+    <view class="opt" bindtap="onOpenMessage">
+      <view class="opt-left">
+        <image class="img" src="/static/icons/inform.png" />
+        <view>消息通知</view>
+      </view>
+      <view class="icon">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+  <view class="action-bar">
+    <button data-name="shareBtn" plain='true' open-type="share" class="button none-border">
+      <view class="opt" open-type="share">
+        <view class="opt-left">
+          <image class="img" src="/static/icons/share_user.png" />
+          <view>推荐给朋友</view>
+        </view>
+        <view class="icon">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </button>
+    <view class="opt" bindtap="onOpenIssue">
+      <view class="opt-left">
+        <image class="img" src="/static/icons/issue.png" />
+        <view>问题反馈</view>
+      </view>
+      <view class="icon">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view>
+      <button open-type="contact" plain='true' style="all: unset; position: relative;" class="none-border">
+        <view class="opt">
+          <view class="opt-left">
+            <image class="img" src="/static/icons/connection.png" />
+            <view>联系开发者</view>
+          </view>
+          <view class="icon">
+            <van-icon name="arrow" />
+          </view>
+        </view>
+      </button>
+    </view>
+    <view class="opt" bindtap="updateLog">
+      <view class="opt-left">
+        <image class="img" src="/static/icons/logs.png" />
+        <view>更新日志</view>
+      </view>
+      <view class="icon">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="opt none-border" bindtap="onOpenAbout">
+      <view class="opt-left">
+        <image class="img" src="/static/icons/regards.png" />
+        <view>关于</view>
+      </view>
+      <view class="icon">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <view class="message-notification">
+    <view class="opt" bindtap="openCode">
+      <view class="opt-left">
+        <image class="img" src="/static/icons/code.png" />
+        <view>开源地址</view>
+      </view>
+      <view class="icon">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <view class="version-information">
+    <view>DayIJoy纪念日</view>
+    <view>{{version}}</view>
+  </view>
+
+  <!-- 管理订阅 -->
+  <van-popup show="{{ shownMessage }}" z-index="99999" position="bottom" round="true" bind:close="onCloseMessage">
+    <view class="message">
+      <view class="title">
+        <view class="name">管理订阅</view>
+        <view class="instructions">订阅纪念日到期消息提醒</view>
+        <view wx:if="{{wxInform}}" class="instructions warn">当用户点击授权后，由于微信小程序的限制，我们才能推送服务通知。每次用户点击授权即表示一次通知次数的增加，按需灵活调整次数。感谢您的理解。</view>
+      </view>
+      <view class="content">
+        <view class="car">
+          <view class="opt">
+            <view>微信通知</view>
+            <van-switch disabled="{{wxInform}}" checked="{{ wxInform }}" active-color="#333333" inactive-color="#ffffff" size="24px" bind:change="openBootTip" style="width: 68px; display: flex; justify-content: flex-end;" />
+          </view>
+          <view wx:if="{{!wxInform}}" class="sezhi">
+            <view>
+              1、您拒绝了授权，请点击设置按钮→
+              <view class="button" catchtap="setPermission">设置</view>
+            </view>
+            <view>2、设置完后，再手动打开 <text class="sign">“订阅消息”</text> 开关</view>
+          </view>
+          <view class="operation-subscription" wx:if="{{wxInform}}">
+            <view>剩余提示</view>
+            <view>
+              <van-button type="default" bind:tap="wechatSubscription" class="frequency" disabled="{{clickStatus || !wxInform}}">加一</van-button>
+            </view>
+            <view class="jy">{{subscription_remaining}}<view class="unit">次</view></view>
+          </view>
+        </view>
+        <view class="car">
+          <view class="opt">
+            <view>邮箱通知</view>
+            <van-switch wx:if="{{!emailDisabled}}" disabled="{{emailDisabled}}" checked="{{ yxInform }}" active-color="#333333" inactive-color="#ffffff" size="24px" bind:change="openMessageEmail" style="width: 68px; display: flex; justify-content: flex-end;" />
+            <view wx:else class="editEmail" bind:tap="editEmail">修改</view> 
+          </view>
+          <block wx:if="{{yxInform && !emailDisabled}}">
+            <view class="form">
+              <view class="tip">验证码有效时间为5分钟。</view>
+              <view class="form-item">
+                <view class="label">邮箱</view>
+                <van-field style="width: 80%;" model:value="{{ email }}" placeholder="请输入邮箱" border="{{ false }}" />
+              </view>
+              <view class="form-item">
+                <view class="form-item-left">
+                  <view class="label">验证码</view>
+                  <van-field style="width: 60%;" model:value="{{ code }}" placeholder="请输入验证码" border="{{ false }}" />
+                </view>
+                <block wx:if="{{codeDisable}}">
+                  <van-count-down use-slot format="ss" bind:change="onChange" time="{{ codeTime }}">
+                    <text class="codeTime">{{ timeData.seconds }}<text class="danwei">s</text></text>
+                  </van-count-down>
+                </block>
+                <view style="width: 100px;" wx:else bindtap="getCode">{{getCodeTixt}}</view>
+              </view>
+              <view class="save">
+                <van-button round type="info" disabled="{{saveDisabled}}" bindtap="submitVerificationCode">保存</van-button>
+              </view>
+            </view>
+          </block>
+        </view>
+        <!-- <view class="save">
+          <view class="button">确定</view>
+        </view> -->
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 关于 -->
+  <van-popup show="{{ shownAbout }}" closeable z-index="999999999" position="bottom" round="true" custom-style="height: 50%;" bind:close="onCloseAbout">
+    <view class="about">
+      <view class="title">DayIJoy纪念日</view>
+      <text decode="true" class="content">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起因，我总是忘记牛夫人的生日和纪念日，又找不到一个即好看又没广告的纪念日软件或小程序，决定自己开发一个即简约又没广告的小程序。
+        
+        于是2024年01月20号
+        “DayIJoy” 诞生了。
+      </text>
+    </view>
+  </van-popup>
+
+    <!-- 设置头像和名称 -->
+  <van-popup show="{{ shownSetAvatarName }}" close-on-click-overlay="{{false}}" closeable z-index="999999999" position="bottom" round="true" custom-style="{{passiveModification ? 'height: 55%' : 'height: 50%'}}" bind:close="onCloseSetAvatarName">
+    <view class="setAvatarName">
+      <view class="title">
+      <block wx:if="{{passiveModification}}">
+        <view>为了让您更好地体验小程序，</view>
+        <view>建议您先设置 <view class="highlight">头像</view> 和 <view class="highlight">昵称</view> 。</view>
+        <view class="hint">仅在分享、账号关联等需要展示个人信息的场景下才会显示您的个人信息。</view>    
+      </block>
+      <block wx:else="">
+        <view>更新个人信息。</view>
+        <view class="hint">仅在分享、账号关联等需要展示个人信息的场景下才会显示您的个人信息。</view>    
+      </block>
+      </view>
+      <view class="content">
+        <view class="opt">
+          <view class="name">头像</view>
+          <view class="avatar-box">
+            <image wx:if="{{serverUrl}}" src="{{avatar_url ? serverUrl + '/static' + avatar_url : serverUrl + '/material_static/x_avatar.png'}}" class="img" />
+            <button class="avatar" open-type="chooseAvatar" bind:chooseavatar="bindchooseavatar"></button>
+          </view>
+        </view>
+        <view class="opt">
+          <view class="name">昵称</view>
+          <view>
+            <input value="{{ user_name }}" bindinput="setUserName" bindblur="saveUserName" type="nickname" class="set-nickname" placeholder="-设置个名称咯-" placeholder-style="color: #4a4949;font-size: 17px;" />
+          </view>
+        </view>
+        <view class="opt at-last">
+          <view class="name">性别</view>
+          <view>
+            <van-radio-group
+              value="{{ gender }}"
+              bind:change="onChangeGender"
+              direction="horizontal"
+            >
+              <van-radio name="0">保密</van-radio>
+              <van-radio name="1">男</van-radio>
+              <van-radio name="2">女</van-radio>
+            </van-radio-group>
+          </view>
+        </view>
+        <view class="save">
+          <van-button round type="info" loading="{{saveLoading}}" bindtap="saveInfo">保 存</van-button>
+        </view>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 订阅消息权限引导提示 -->
+  <van-dialog
+    use-slot
+    z-index="999999"
+    show="{{ bootTipShow }}"
+    confirm-button-open-type="getUserInfo"
+    bind:getuserinfo="openMessage"
+  >
+    <image wx:if="{{serverUrl}}" src="{{serverUrl}}/material_static/ts_pic.jpg" />
+  </van-dialog>
+
+  <van-notify id="van-notify" />
+  <!-- 轻提示 -->
+  <van-toast id="van-toast" zIndex="{{99999}}" />
+</view>

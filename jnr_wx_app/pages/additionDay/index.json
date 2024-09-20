@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "navbar": "/components/navbar/index",
+      "date-picker": "/components/datePicker/index",
+      "color-picker": "/components/colorPicker/index"
+    }
+}

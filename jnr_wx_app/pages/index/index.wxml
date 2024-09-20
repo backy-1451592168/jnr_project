@@ -1,0 +1,65 @@
+<view class='home'>
+  <navbar isShowIcon="{{cardList.length ? true : false}}" title="首页" color="f2f2f200" bind:switchBackgroundType="switchBackgroundType" bind:switchLoveType="switchLoveType"></navbar>
+  <view class='page-content'>
+    <block wx:if="{{cardList.length}}">
+      <view class="box">
+        <block wx:for="{{cardList}}" wx:for-item="item" wx:key="id">
+          <view class="options">
+            <block wx:if="{{item.img_url && bg_type == 1}}">
+              <view class="card-box img-bg" data-item="{{item}}" catchtap="viewCard" style="background-image: url({{serverUrl}}/static{{item.img_url}});">
+                <view class="card">
+                  <text class="name">{{item.name}}</text>
+                  <view class="days">
+                    <text class="gong-title">{{item.date_type == '0' ? '共' : ''}}</text>
+                    <text class="num">{{item.days}}</text>
+                    <text class="text" style="background-color: {{item.date_type == 0 ? '#3e3e3e' : '#6b433c'}};">{{item.date_type == 0 ? "天" : "天后"}}</text>
+                  </view>
+                  <view class="bottom">
+                    <text>{{item.dateType}} {{item.yyyy}}{{item.mm}}{{item.dd}}</text>
+                    <image class="img" style="width: 20px;height: 20px;" src="/static/icons/{{item.special_focus ? 'love_cs' : 'love_kx'}}.png"></image>
+                  </view>
+                  <text class="week">{{item.dayInWeek}}</text>
+                </view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="card-box img-bg" data-item="{{item}}" catchtap="viewCard" style="padding: 10px; background: linear-gradient(to bottom, {{item.rgbColor}}, #fff);">
+                <text class="name">{{item.name}}</text>
+                <view class="days">
+                  <text class="gong-title">{{item.date_type == '0' ? '共' : ''}}</text>
+                  <text class="num">{{item.days}}</text>
+                  <text class="text" style="background-color: {{item.date_type == 0 ? '#3e3e3e' : '#6b433c'}};">{{item.date_type == 0 ? "天" : "天后"}}</text>
+                </view>
+                <view class="bottom">
+                  <text>{{item.dateType}} {{item.yyyy}}{{item.mm}}{{item.dd}}</text>
+                  <image class="img" style="width: 20px;height: 20px;" src="/static/icons/{{item.special_focus ? 'love_cs' : 'love_kx'}}.png"></image>
+                </view>
+                <text class="week">{{item.dayInWeek}}</text>
+              </view>
+            </block>
+          </view>
+        </block>
+        <view style="height: 15px;"></view>
+        <!-- 添加 -->
+        <view class="add-buttom-big" catchtap="additionDay">+</view>
+      </view>
+    </block>
+    <!-- 无数据 -->
+    <block wx:else>
+      <view class="no-datas">
+        <view class="img" wx:if="{{serverUrl}}" style="background-image: url({{serverUrl}}/material_static/no_data.png);"></view>
+        <view class="operate" catchtap="destroy">
+          <view class="text">Yay!</view>
+          <view class="text">No data</view>
+          <view class="refresh">
+            <view class="tips" catchtap="additionDay"><text>添加一条纪念日</text> <text class="add-buttom">+</text></view>
+            <van-icon size="28px" color="#979696" name="replay" catchtap="getList" />
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <van-toast id="van-toast" zIndex="{{99999}}" />
+
+  <pin-prompt auto delay="{{3}}" name="我的小程序" customNavbar show="{{show}}" logo="/static/logo/logo.png" name="Joy纪念日"></pin-prompt> 
+</view>

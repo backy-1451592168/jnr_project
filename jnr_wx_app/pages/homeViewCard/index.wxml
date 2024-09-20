@@ -1,0 +1,71 @@
+<!--纪念日详细-->
+<view class="homeViewCard">
+  <navbar isBackspace="{{sharePage}}"></navbar>
+  <!-- 0f2f9f -->
+  <view class="card"
+    bindtap="daysToYearMonthDay"
+    style="{{ cardData.background_type == '1' ? 'background-color: ' + cardData.preset_color + ';' : 'background: url(' + serverUrl + '/static' + cardData.img_url + ');background-size: cover; background-position: center center; background-repeat: no-repeat;'}}">
+    <text>{{cardData.name}}</text>
+    <view class="days">
+    <block wx:if="{{revealDateType}}">
+      <text class="gong-title">{{cardData.date_type == '0' ? '共' : ''}}</text>
+      <text class="num">{{cardData.days}}</text>
+      <text class="text">{{cardData.date_type == "0" ? "天" : "天后"}}</text>
+    </block>
+    <block wx:else>
+      <text class="yyyymmdd">
+        <block wx:if="{{conversionDate.years}}">{{conversionDate.years}} <text class="unit">年</text></block>
+        <block wx:if="{{conversionDate.months}}"> {{conversionDate.months}} <text class="unit">个月</text></block>
+        <block wx:if="{{conversionDate.days}}"> {{conversionDate.days}} <text class="unit">天</text></block>
+      </text>
+    </block>
+    </view>
+    <view class="swith" wx:if="{{cardData.date_type == '0'}}">
+      <text>切换</text>
+      <image class="img" src="/static/icons/swith-icon.png" mode=""/>
+    </view>
+    <text>{{cardData.date}} {{cardData.dayInWeek}}</text>
+  </view>
+  <view class="action-field">
+    <block wx:if="{{sharePage}}">
+      <view class="icon-box" bindtap="editData">
+        <image class="icon" src="/static/icons/edit_view.png"></image>
+      </view>
+      <view class="icon-box" bindtap="shareCard">
+        <image class="icon" src="/static/icons/share.png"></image>
+      </view>
+      <view class="icon-box" bindtap="openDalete">
+        <image class="icon" src="/static/icons/delete.png"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="icon-box" bindtap="returnHome">
+        <image class="icon" src="/static/icons/home.png"></image>
+      </view>
+    </block>
+  </view>
+
+  <van-dialog 
+    class="van-dialog" 
+    title="确认删除" 
+    show="{{ deleteShow }}" 
+    use-slot 
+    show-cancel-button
+    confirm-button-open-type="getUserInfo"
+    bind:close="onCloseDalete"
+    bind:getuserinfo="deleteDate"
+  >
+    <view class="ca">删除将无法恢复！确定删除？？</view>
+  </van-dialog>
+
+  <van-toast id="van-toast" zIndex="{{99999}}" />
+  <van-share-sheet
+    show="{{ showShare }}"
+    options="{{ options }}"
+    bind:select="setShare"
+    bind:cancel="cancelShare"
+    bind:click-overlay="cancelShare"
+    title="立即分享给好友"
+    description="重要日子哇！"
+  />
+</view>

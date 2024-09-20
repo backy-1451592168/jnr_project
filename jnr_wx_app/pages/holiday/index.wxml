@@ -1,0 +1,69 @@
+<!--发现-->
+<view class="holiday-box">
+  <navbar title="{{navbarTitle}}"></navbar>
+
+  <view class="box">
+    <!-- <view class="couple-card" bindtap="openAssociation">
+      <view wx:if="{{serverUrl}}" class="bg-img" style="background-image: url({{serverUrl}}/material_static/ds.jpeg);"></view>
+      <view class="left">
+        <image class="img" wx:if="{{avatar_url}}" src="{{serverUrl}}/static{{avatar_url}}" mode=""/>
+        <image class="img" wx:elif="{{serverUrl}}" src="{{serverUrl}}/material_static/x_avatar.png" mode=""/>
+        <view>{{user_name ? user_name : '--'}}</view>
+      </view>
+      <view class="middle">
+        <image class="img" wx:if="{{association_status == 2}}" src="/static/icons/disconnect.png" mode=""/>
+        <image class="img" wx:elif="{{association_status == 3}}" src="/static/icons/association.png" mode=""/>
+        <image class="img" wx:else src="/static/icons/no_association.png" mode=""/>
+        <view class="name">{{association_title}}</view>
+      </view>
+      <view class="right">
+        <view class="bare">
+          <image class="img_s" wx:if="{{association_status !== 3}}" src="/static/icons/add.png" mode=""/>
+          <image class="img" wx:elif="{{partner_data.avatar_url}}" src="{{serverUrl}}/static{{partner_data.avatar_url}}" mode=""/>
+          <image class="imgs" wx:elif="{{serverUrl}}}" src="{{serverUrl}}/material_static/x_avatar.png" mode=""/>
+          <view>{{partner_data.user_name ? partner_data.user_name : 'TA'}}</view>
+        </view>
+      </view>
+    </view> -->
+
+    <view class="schedule">
+      <view wx:if="{{serverUrl}}" class="bg-img" style="background-image: url({{serverUrl}}/material_static/ds.jpeg);"></view>
+      <view class="card-header-schedule">
+        <view class="title">{{year}}年进度</view>
+        <view>{{date}}</view>
+      </view>
+      <view class="progress-schedule">
+        <view class="progress-header">
+          <view>{{progress}}%</view>
+          <view>{{daysPassed}}/365</view>
+        </view>
+        <van-progress color="#fff" track-color="#a5a5a5" percentage="{{progress}}" stroke-width="12" show-pivot="{{false}}" />
+      </view>
+    </view>
+
+    <view class="holiday" data-obj="{{item}}" bindtap="viewCard" wx:for="{{more ? holidaysList : holidays}}" wx:key="index">
+      <view class="img-card" style="background-image: url({{item.img}});">
+        <view class="card" style="background: linear-gradient(to top, #0000006b, #fff0);">
+          <view class="card-header">
+            <view class="title">{{item.days == 0 ? '今天' : '即将'}}</view>
+            <view>{{item.date}}</view>
+          </view>
+          <view class="progress">
+            <view class="content">
+              <view class="title">{{item.name}}</view>
+              <view wx:if="{{item.days}}">
+                <text class="day">{{item.days}}</text>
+                <text class="unit">天后</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="more">
+      <text class="more-name" catchtap="viewMore">{{more ? '折叠' : '更多...'}}</text>
+    </view>
+  </view>
+
+  <van-toast id="van-toast" zIndex="{{99999}}" />
+</view>

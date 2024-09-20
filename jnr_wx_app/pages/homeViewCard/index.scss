@@ -1,0 +1,105 @@
+.homeViewCard {
+  .card {
+    padding: 18px;
+    margin: 10vh 12vw;
+    height: 42vh;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow:  6px 6px 35px #dedede,
+        -6px -6px 32px #ffffff;
+  
+    .text {
+      padding: 5px 5px;
+    }
+  
+    .refresh {
+      font-size: 20px;
+    }
+  
+    .days {
+      text-align: center;
+      font-size: 46px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      position: relative;
+      .num {
+        margin-left: 5px;
+        display: inline-block;
+        color: #ffffff;
+        // color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -moz-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #585858;
+        -moz-text-stroke-color: #585858;
+      }
+      .text {
+        color: #fff;
+        background-color: #0f0f0f;
+        min-width: 15px;
+        height: 15px;
+        position: absolute;
+        font-size: 10px;
+        font-weight: normal;
+        border-radius: 5px;
+        padding: 2px 4px;
+        margin-left: 3px;
+      }
+      .gong-title {
+        color: #fff;
+        font-size: 13px;
+        font-weight: normal;
+      }
+      .yyyymmdd {
+        font-size: 36px;
+        font-weight: 500;
+        .unit {
+          font-size: 23px;
+        }
+      }
+    }
+    .swith {
+      font-size: 10px;
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .img {
+        width: 20px;
+        height: 20px;
+        display: inline;
+        display: block;
+      }
+    }
+  }
+  .action-field {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    .icon-box {
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .van-dialog {
+    .ca {
+      height: 50px;
+      text-align: center;
+      line-height: 42px;
+      color: #969696;
+      font-size: 14px;
+    }
+  }
+}

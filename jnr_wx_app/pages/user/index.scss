@@ -1,0 +1,443 @@
+.user {
+  .userinfo {
+    margin-bottom: 20px;
+
+    .bag {
+      // background-image: url(https://img0.baidu.com/it/u=1691000662,1326044609&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500);
+      background-size: cover;
+      /* 裁剪并拉伸以填充整个元素 */
+      background-position: center center;
+      /* 居中显示 */
+      filter: blur(68px) !important;
+      -webkit-filter: blur(68px) !important;
+      transform: translateZ(0px);
+      /* 添加高斯模糊，调整模糊程度 */
+      height: 200px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      margin-top: 10vh;
+
+      .img-box {
+        width: 80px;
+        height: 80px;
+        padding: 0 10px 0 24px;
+
+        .img {
+          width: 100%;
+          height: 100%;
+          border-radius: 100px;
+        }
+      }
+
+      .info {
+        width: 230px;
+
+        .set-nickname {
+          font-size: 22px;
+          font-weight: 600;
+          margin-bottom: 4px;
+          margin-left: 4px;
+        }
+
+        .user-name {
+          font-size: 20px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+
+          .img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .icon {
+          display: inline-block;
+          font-size: 11px;
+          background: #1d1d1d;
+          color: #fff;
+          padding: 2px 10px;
+          padding-bottom: 3px;
+          border-radius: 10px;
+        }
+
+        .email {
+          display: inline-block;
+          padding-bottom: 3px;
+          margin-top: 5px;
+          background: #000;
+        }
+      }
+    }
+  }
+
+  .message-notification {
+    background-color: #fff;
+    padding: 5px 10px;
+    padding-left: 6px;
+    margin: 10px;
+    border-radius: 14px;
+
+    .opt {
+      height: 50px;
+      color: #1e253d;
+      font-size: 17px;
+      margin: 0 5px 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .opt-left {
+        display: flex;
+        align-items: center;
+
+        .img {
+          width: 26px;
+          height: 26px;
+          margin-right: 7px;
+        }
+      }
+
+      .icon {
+        color: #dadbdf;
+      }
+    }
+  }
+
+  .action-bar {
+    background-color: #fff;
+    padding: 0 10px;
+    padding-left: 6px;
+    margin: 10px;
+    border-radius: 14px;
+
+    .button {
+      all: unset;
+      position: relative;
+      // border: none;
+      // outline: none;
+    }
+
+    .opt {
+      height: 50px;
+      border-bottom: 1px solid #f5f5f5;
+      color: #1e253d;
+      font-size: 17px;
+      margin-left: 10px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .opt-left {
+        display: flex;
+        align-items: center;
+
+        .img {
+          width: 25px;
+          height: 25px;
+          margin-right: 7px;
+        }
+      }
+
+      .icon {
+        color: #dadbdf;
+      }
+    }
+
+    .none-border {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .version-information {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 90px;
+    color: #b4b5b6;
+    font-size: 12px;
+  }
+
+  .message {
+    // display: inline-block;
+    height: 100%;
+    padding: 30px 20px;
+
+    .title {
+      margin-bottom: 20px;
+
+      .name {
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .instructions {
+        font-size: 14px;
+        color: #b0b0b1;
+        margin-top: 5px;
+      }
+      .warn {
+        color: #000;
+        background-color: #ffebbe;
+        padding: 5px;
+      }
+    }
+
+    .content {
+      .car {
+        margin-bottom: 20px;
+
+        .opt {
+          display: flex;
+          justify-content: space-between;
+          font-size: 17px;
+          margin-bottom: 10px;
+        }
+
+        .editEmail {
+          font-size: 16px;
+          width: 50px;
+          text-align: center;
+        }
+
+        .form {
+          .tip {
+            background-color: #ffebbe;
+            padding: 5px;
+
+          }
+          .form-item {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .form-item-left {
+              display: flex;
+              align-items: center;
+            }
+
+            .form-item-right {
+              display: flex;
+              align-items: center;
+              height: 100%;
+            }
+
+            .codeTime {
+              display: inline-block;
+              width: 82px;
+              text-align: center;
+
+              .danwei {
+                margin-left: 1px;
+              }
+            }
+          }
+
+          .label {
+            font-size: 17px;
+            color: #9b9b9b;
+            width: 70px;
+          }
+        }
+
+        .sezhi {
+          padding-top: 8px;
+          .button {
+            all: unset;
+            background: #3563fd;
+            color: #fff;
+            width: 56px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+            display: inline-block;
+          }
+
+          .sign {
+            color: #000000;
+          }
+        }
+      }
+      .operation-subscription {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .frequency {
+          .van-button--default {
+            width: 90px;
+            height: 90px;
+            font-size: 22px;
+            font-weight: 600;
+            background-color: #000;
+            color: #fff;
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .jy {
+          width: 68px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: baseline;
+          font-size: 18px;
+          font-weight: 600;
+          .unit {
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .save {
+      float: right;
+
+      .button {
+        width: 100px;
+        height: 42px;
+        background: #3563fd;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 42px;
+      }
+    }
+  }
+
+  .about {
+    .title {
+      font-size: 22px;
+      text-align: center;
+    }
+    .content {
+      letter-spacing: 2px;
+    }
+
+    padding: 40px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .setAvatarName {
+    display: inline-block;
+    padding: 35px 24px 0 24px;
+
+    .title {
+      font-size: 22px;
+      font-weight: 600;
+
+      .hint {
+        font-size: 13px;
+        font-weight: 400;
+        color: #a2a2a2;
+        margin-top: 8px;
+      }
+
+      .highlight {
+        display: inline-block;
+        font-size: 28px;
+        // color: #a700fb;
+        color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -moz-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #333;
+        -moz-text-stroke-color: #333;
+        text-shadow: 3px 3px #ff9f6987;
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+
+      .opt {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        border-top: 1px solid #efefef;
+      }
+
+      .save {
+        float: right;
+        margin-top: 20px;
+      }
+
+      .at-last {
+        border-bottom: 1px solid #efefef;
+      }
+
+      .name {
+        color: #a2a2a2;
+        font-size: 18px;
+      }
+      .avatar-box {
+        position: relative;
+        .img {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 100px;
+        }
+  
+        .avatar {
+          position: absolute;
+          padding: 0;
+          margin: 0;
+          font-size: 16px;
+          position: relative;
+          width: 50px;
+          height: 50px;
+          background-color: #ffffff00;
+          color: #000;
+          border-radius: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // background-size: cover;
+          // background-position: center;
+        }
+      }
+    }
+
+    .set-nickname {
+      text-align: right;
+    }
+  }
+
+  .van-button--round {
+    height: 36px;
+    width: 90px;
+  }
+
+  .van-radio__icon--checked {
+    background-color: #000;
+    border-color: #000;
+  }
+
+  .van-button--info {
+    background: #000;
+    border: none;
+  }
+}
+
+// 去掉button默认边框
+.none-border[plain] {
+  border: none;
+}

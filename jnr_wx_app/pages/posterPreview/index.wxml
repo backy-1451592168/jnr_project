@@ -1,0 +1,15 @@
+<!--海报预览-->
+<view class="posterPreview">
+  <navbar title="海报预览" isBackspace="{{true}}" color="#ffffff"></navbar>
+  <view class="container" id="wrapper">
+    <view id="targetElement" class="canvas_ele_limit">
+      <view class="center">
+      
+      <view data-type="text" data-text="文字1" class="title">文字1</view>
+      </view>
+    </view>
+  </view>
+    <button class="generate-btn" bindtap="drawCanvas">generate</button>
+  <canvas canvas-id="canvasId" class="share-canvas"></canvas>
+  <!-- <canvas canvas-id="canvas-map" id="canvas-map" class="share-canvas" style="height: {{canvasHeight}}px;"></canvas> -->
+</view>

@@ -1,0 +1,14 @@
+<!--开源地址-->
+<view class="updateLog">
+  <navbar isBackspace="{{true}}"></navbar>
+  <view class="codeAddress">
+    <view class="content">
+      您好，很抱歉，当前功能尚未完善，我们正在不断努力进行版本改进和更新。
+      一旦功能完备，我们将随时通知，并提供更多的开放代码选项。感谢您的理解和支持。
+    </view>
+    <view class="signature">
+      <view>祝您愉快，</view>
+      <view>DayCountdown。</view>
+    </view>
+  </view>
+</view>

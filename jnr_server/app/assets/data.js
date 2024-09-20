@@ -1,0 +1,76 @@
+function html(params) {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  
+  <body style="background-color: #ffffff;padding: 0;margin: 0;">
+    <div style="width: 100vw;height: 100vh;min-height: 680px;position: relative;">
+      <div style="position: absolute;
+      z-index: 9;
+      color: #22216c;
+      padding: 10px 20px;
+      height: 100%;
+      width: 90%;">
+        <p style="font-weight: 600;
+        padding: 20px 0;
+        font-size: 40px;
+        font-family: monospace;">${params.name}</p>
+        <p style="font-weight: 600;
+        padding: 20px 0;
+        font-size: 46px;
+        font-family: monospace;">${params.date}</p>
+        <p style="font-weight: 600;
+        padding: 20px 0;
+        font-size: 28px;
+        font-family: monospace;">类型：${params.classification}</p>
+        <p style="font-weight: 500;
+        padding: 20px 0;
+        font-size: 18px;
+        font-family: monospace;">记要：${params.remark}</p>
+        <div>
+          <span>今天是个重要的日子，今天是${params.name}，记得去完成噢。</span><br>
+          祝您愉快，<br>
+          DayCountdown。
+        </div>
+  
+        <p style="position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 100px;
+        font-weight: 600;
+        padding: 0;
+        margin: 0;">
+          <img src="data:image/png;base64,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" alt=""/>
+        </p>
+      </div>
+      <div style="position: absolute;
+      height: 100%;
+      width: 100%;
+      background: radial-gradient(circle at 50% -50%, rgb(81, 238, 214) 30%, transparent 70%);"></div>
+      <div style="position: absolute;
+      height: 100%;
+      width: 100%;
+      background: radial-gradient(circle at 20% 120%, rgb(115, 163, 250) 20%, transparent 60%);"></div>
+      <div style="position: absolute;
+      height: 100%;
+      width: 100%;
+      background: radial-gradient(circle at -33% 50%, rgb(210, 131, 252) 30%, transparent 70%);"></div>
+      <div style="position: absolute;
+        height: 100%;
+        width: 100%;
+        background: radial-gradient(circle at 123% 130%, rgb(255 236 236) 25%, transparent 65%);"></div>
+    </div>
+    </div>
+  </body>
+  
+  </html>`
+}
+
+module.exports = {
+  html
+}

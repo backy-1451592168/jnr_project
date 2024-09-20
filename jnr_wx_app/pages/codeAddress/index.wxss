@@ -1,0 +1,11 @@
+/* pages/codeAddress/index.wxss */
+.codeAddress {
+  padding: 20px;
+}
+.codeAddress .signature {
+  margin-top: 40px;
+  float: right;
+}
+.codeAddress .content {
+  font-size: 19px;
+}

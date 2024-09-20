@@ -1,0 +1,17 @@
+<!-- 自定义菜单 -->
+<view class="tab-bar">
+  <!-- <view class="tab-bar-border"></view> -->
+  <view class="footer">
+    <view
+      wx:for="{{list}}"
+      wx:key="index"
+      data-path="{{item.pagePath}}"
+      class="options {{selected === index ? 'selected' : 'cancel'}}"
+      data-index="{{index}}"
+      bindtap="switchTab"
+    >
+      <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+      <text wx:if="{{selected === index}}">{{item.text}}</text>
+    </view>
+  </view>
+</view>

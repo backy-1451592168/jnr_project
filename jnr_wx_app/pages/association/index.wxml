@@ -1,0 +1,46 @@
+<!-- 关联详情页 -->
+<view class="association">
+  <navbar isGoHome="{{association_status || sharePage}}" isBackspace="{{!association_status && !sharePage}}" title="{{navbarTitle}}"></navbar>
+  <view class="not-association" wx:if="{{!association_status}}">
+    <image class="img" src="{{serverUrl}}/material_static/empty.png" mode=""/>
+    <view class="title">您还没有关联的好友，快去关联吧</view>
+    <button data-name="shareBtn" plain='true' open-type="share" class="button" bindtap="setAssociatedStatus">邀请好友</button>
+  </view>
+  <view class="wait"wx:elif="{{association_status == 1}}">
+    <image class="img" src="{{serverUrl}}/material_static/wait.png" mode=""/>
+    <view class="title">对方尚未同意关联，快去提醒TA吧</view>
+    <view class="button" bindtap="refreshState">刷新</view>
+    <view class="cancel" data-status="{{1}}" bindtap="cancelApplication">取消申请</view>
+  </view>
+  <view class="refuse"wx:elif="{{association_status == 2}}">
+    <image class="img" src="{{serverUrl}}/material_static/refuse.png" mode=""/>
+    <view class="title">对方拒绝了😭，快去重新邀请TA</view>
+    <button data-name="shareBtn" plain='true' open-type="share" class="button" bindtap="setAssociatedStatus">重新邀请</button>
+    <view class="cancel" data-status="{{2}}" bindtap="cancelApplication">取消邀请</view>
+  </view>
+  <view class="re-as" wx:elif="{{association_status == 4}}">
+    <view class="title">
+      <view>{{partner_data.user_name ? partner_data.user_name : '用户'}} 请求与您关联</view>
+      <view class="tip">建立关联后将共享部分纪念日</view>
+    </view>
+    <view class="content">
+      <view class="info">
+        <image wx:if="{{serverUrl}}" src="{{partner_data.avatar_url ? serverUrl + '/static/' + partner_data.avatar_url : serverUrl + '/material_static/x_avatar.png'}}" class="img" />
+        <view class="name">{{partner_data.user_name ? partner_data.user_name : '用户'}}</view>
+      </view>
+    </view>
+    <view class="operate">
+      <view class="but">
+        <view class="verify" bindtap="onConsent">接受请求</view>
+        <view class="cancel" bindtap="onRefuse">残忍拒绝</view>
+      </view>
+    </view>
+  </view>
+  <view class="mistake"wx:elif="{{association_status == 5}}">
+    <image class="img" src="{{serverUrl}}/material_static/mistake.png" mode=""/>
+    <view class="title">对方取消关联了，快重新邀请TA</view>
+    <button data-name="shareBtn" plain='true' open-type="share" class="button" bindtap="setAssociatedStatus">重新邀请</button>
+    <view class="cancel" data-status="{{5}}" bindtap="cancelApplication">取消邀请</view>
+  </view>
+  <van-toast id="van-toast" />
+</view>

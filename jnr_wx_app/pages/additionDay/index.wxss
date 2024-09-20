@@ -1,0 +1,307 @@
+@charset "UTF-8";
+.additionDay .content {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.additionDay .content .form .form-item {
+  margin-bottom: 15px;
+}
+
+.additionDay .content .form .form-item .label-title {
+  display: flex;
+}
+
+.additionDay .content .form .form-item .label-title .img {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+.additionDay .content .form .form-item .label-title .icon {
+  margin: 0 0 5px 4px;
+}
+
+.additionDay .content .form .form-item .form-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.additionDay .content .form .form-item .form-item-content .options {
+  font-size: 16px;
+  color: #616161;
+}
+
+.additionDay .content .form .form-item .form-item-content .form-item-content-right {
+  display: flex;
+  align-items: center;
+}
+
+.additionDay .content .form .form-item .form-item-content .symbol {
+  font-size: 12px;
+  line-height: 10px;
+  margin-left: 6px;
+  color: #000000;
+}
+
+.additionDay .content .form .form-item-labelNull {
+  margin-top: 20px;
+}
+
+.additionDay .content .form .label {
+  font-size: 16px;
+  color: #737373;
+}
+
+.additionDay .content .form .inside-label {
+  font-size: 16px;
+  color: #383737;
+}
+
+.additionDay .content .form .inside-label .icon {
+  margin-left: 3px;
+}
+
+.additionDay .content .form .title {
+  margin-bottom: 5px;
+}
+
+.additionDay .footer-button {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.additionDay .footer-button .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 49px;
+  line-height: 48px;
+  background-color: #000;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 12px;
+  padding-left: 10px;
+}
+
+.additionDay .footer-button .button .img {
+  width: 24px;
+  height: 13px;
+}
+
+.additionDay .footer-button .button:hover {
+  background-color: #e4e4e4;
+}
+
+.additionDay .preview .card {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.additionDay .preview .card .box {
+  padding: 20px 20px 20px 10px;
+  width: 50vw;
+  height: 250px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.additionDay .preview .card .box .label,
+.additionDay .preview .card .box .date {
+  font-size: 12px;
+}
+
+.additionDay .preview .card .box .day {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.additionDay .preview .card-save {
+  height: calc(100vh - 290px);
+  background-color: #fff;
+}
+
+.additionDay .preview .card-save .titel {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.additionDay .preview .card-save .titel {
+  padding: 10px 0 5px 10px;
+}
+
+.additionDay .preview .card-save .edit-background {
+  background-color: #e8e8e8;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s;
+}
+
+.additionDay .preview .card-save .edit-background .icon-container {
+  display: flex;
+  align-items: center;
+  color: #555555;
+}
+
+.additionDay .preview .card-save .edit-background .icon-container .name {
+  font-size: 16px;
+  margin-left: 2px;
+}
+
+.additionDay .preview .card-save .edit-background .icon-container .img-unfold {
+  width: 48px;
+  height: 48px;
+  transition: all 0.4s;
+}
+
+.additionDay .preview .card-save .edit-background .icon-container .img-pack-up {
+  width: 34px;
+  height: 34px;
+  transition: all 0.4s;
+}
+
+.additionDay .preview .coolors {
+  overflow-x: scroll;
+}
+
+.additionDay .preview .coolors .box {
+  display: flex;
+  align-items: center;
+  width: 130vw;
+  height: 60px;
+}
+
+.additionDay .preview .coolors .color-card {
+  position: relative;
+  color: #fff;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 40px;
+}
+
+.additionDay .preview .coolors .color-card .colour-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.additionDay .preview .coolors .color-card .icon {
+  font-size: 20px;
+}
+
+.additionDay .preview .coolors .color-card .label {
+  font-size: 8px;
+}
+
+.additionDay .preview .save-footer-button {
+  width: 100%;
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.additionDay .preview .save-footer-button .back-button {
+  text-align: center;
+  width: 20%;
+  height: 49px;
+  line-height: 48px;
+  background-color: #ffa31a;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 12px;
+}
+
+.additionDay .preview .save-footer-button .back-button .img {
+  width: 16px;
+  height: 13px;
+  margin-right: 2px;
+}
+
+.additionDay .preview .save-footer-button .button {
+  text-align: center;
+  width: 65%;
+  height: 49px;
+  line-height: 48px;
+  background-color: #3950a9;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 12px;
+  margin-left: 15px;
+}
+
+.additionDay .preview .save-footer-button .button .img {
+  width: 24px;
+  height: 13px;
+}
+
+.additionDay .preview .save-footer-button .back-button:hover,
+.additionDay .preview .save-footer-button .button:hover {
+  background-color: #e4e4e4;
+}
+
+.additionDay .van-field__label {
+  font-size: 14px;
+}
+
+.cancles-button-class {
+  color: #ffa31a !important;
+}
+
+.custom-button-class {
+  color: #3e62f4 !important;
+  /* 按钮文字颜色为白色 */
+}
+
+.van-field__body {
+  height: 40px;
+}
+
+.van-cell {
+  border-radius: 12px;
+  height: 52px;
+  padding: 6px 16px !important;
+}
+
+.van-picker {
+  border-radius: 12px;
+}
+
+.van-cell__value {
+  font-size: 15px;
+}
+
+.van-cell {
+  align-items: center;
+}
+
+.van-collapse-item__content {
+  padding: 7px 15px !important;
+}

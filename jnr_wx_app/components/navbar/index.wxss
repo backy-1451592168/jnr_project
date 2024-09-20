@@ -1,0 +1,99 @@
+.nav-bar {
+  box-sizing: border-box;
+  /* background: linear-gradient(to right, #f799f0, #a5d5f5); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  color: #54545a;
+  font-weight: 600;
+  border-radius: 0 0 25px 25px;
+  /* background: linear-gradient(to top, #b69ff2, #bfbefe); */
+}
+
+.nav-bar .backspace-icon {
+  position: absolute;
+  left: 10px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 32px;
+}
+
+.nav-bar .backspace-icon .back {
+  display: flex;
+  font-size: 20px;
+  width: 76px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 99px;
+  background-color: #000;
+  color: #fff;
+}
+
+.nav-bar .go-home-icon {
+  position: absolute;
+  left: 15px;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+}
+
+.nav-bar .go-home-icon .icon {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-bar .bgT {
+  position: absolute;
+  left: 20px;
+  height: 20px;
+  width: 21px;
+  text-align: center;
+  margin-top: 3px;
+  padding: 0 10px 0 8px;
+}
+
+.nav-bar .bgT .img {
+  margin-right: 10px;
+  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-bar .settings {
+  display: flex;
+  margin-top: 40px;
+  padding: 0 5%;
+  width: 100%;
+}
+
+.nav-bar .settings .card {
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar .settings .card .img {
+  width: 80px;
+  height: 80px;
+}
+
+.nav-bar .settings .br {
+  border-right: 1px solid #bbbbbb;
+}
+
+.nav-bar .title {
+  font-size: 18px;
+}
+
+.nav-bar .arrow-left {
+  margin: 0 2px;
+}
+
+.nav-bar .name {
+  font-size: 14px;
+}

@@ -1,0 +1,56 @@
+.homeViewCard {
+  .card {
+    height: calc(100vh - 31vh);
+    padding: 15vh 0 16vh 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow:  6px 6px 35px #dedede,
+        -6px -6px 32px #ffffff;
+  
+    .title {
+      .name {
+        font-size: 40px;
+        font-weight: 600;
+      }
+    }
+
+    .img {
+      display: flex;
+      justify-content: flex-end;
+      .icon {
+        width: 30vh;
+        height: 30vh;
+      }
+    }
+
+    .days {
+      .name {
+
+      }
+      .day {
+        line-height: 90px;
+        font-size: 78px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .action-field {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    .icon-box {
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

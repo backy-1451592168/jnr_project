@@ -1,0 +1,5 @@
+<!--components/color-picker/color-picker.wxml-->
+<view class="colorPicker">
+  <view class="title">颜色吸盘</view>
+  <image id="imgPicker" src="/static/image/icon_color_selector.png" style="{{imageStyle}}" bindtap="_selectColor"></image>
+</view>
